@@ -18,7 +18,10 @@ public class MainActivity2 extends AppCompatActivity implements OnTextChanged
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
 
         FirstFragment fragment = new FirstFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
+        getSupportFragmentManager()
+        .beginTransaction()
+        .replace(R.id.frameLayout, fragment)
+        .commit();
     }
 
     @Override
