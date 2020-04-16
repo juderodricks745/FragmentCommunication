@@ -1,9 +1,9 @@
 package com.davidbronn.fragmentrevision.inter_fragments;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.davidbronn.fragmentrevision.R;
 import com.davidbronn.fragmentrevision.databinding.ActivityMain3Binding;
