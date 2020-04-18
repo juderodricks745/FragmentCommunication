@@ -1,4 +1,4 @@
-package com.davidbronn.fragmentrevision.broadcast_communicate
+package com.davidbronn.fragmentrevision.usingBroadCast
 
 import android.content.BroadcastReceiver
 import android.content.Context

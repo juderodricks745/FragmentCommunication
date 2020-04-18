@@ -24,6 +24,13 @@
             android:name=".fragmentToActivity.MainActivity"
             android:screenOrientation="portrait" >
 
+
+        </activity>
+
+        <activity
+            android:name=".withinViewPager.MainActivity"
+            android:screenOrientation="portrait" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,15 +39,11 @@
         </activity>
 
         <activity
-            android:name=".inter_fragments.MainActivity3"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".child_fragments.ParentActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".broadcast_communicate.MainActivity"
+            android:name=".usingBroadCast.MainActivity"
             android:screenOrientation="portrait">
 
         </activity>
