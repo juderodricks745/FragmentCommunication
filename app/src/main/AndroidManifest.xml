@@ -12,16 +12,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".utils.BaseActivity" />
-        <activity android:name=".usingEventBus.EventBusActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".usingEventBus.EventBusActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".usingRxJava.RxJavaActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activityToFragment.MainActivity"
             android:screenOrientation="portrait" />
@@ -37,6 +32,15 @@
         <activity
             android:name=".usingBroadCast.MainActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".navigation.NavigationActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
