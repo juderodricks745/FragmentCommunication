@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.davidbronn.fragmentrevision.R
 import kotlinx.android.synthetic.main.fragment_nav_one.*
 
-class NavFragmentOne : Fragment() {
+class NavFragmentOne : NavBaseFragment() {
+
+    private var liveData: MutableLiveData<Bundle>? = MutableLiveData<Bundle>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -18,12 +22,18 @@ class NavFragmentOne : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val navigator = findNavController()
 
         btnStartFragmentTwo.setOnClickListener {
             NavFragmentOneDirections.oneToTwo().apply {
                 name = edName.text.toString()
-                Navigation.findNavController(btnStartFragmentTwo).navigate(this)
+                navigator.navigate(this)
             }
         }
+
+        liveData = navigator.getLiveDataKey("data")
+        liveData?.observe(viewLifecycleOwner, Observer { bundle ->
+            Toast.makeText(requireActivity(), "${bundle.getString("timeMillis")}", Toast.LENGTH_LONG).show()
+        })
     }
 }

@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.davidbronn.fragmentrevision.R
 import kotlinx.android.synthetic.main.fragment_nav_two.*
 
-class NavFragmentTwo : Fragment() {
+class NavFragmentTwo : NavBaseFragment() {
 
     private val navArgs: NavFragmentTwoArgs by navArgs()
 
@@ -20,7 +20,18 @@ class NavFragmentTwo : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val navController = findNavController()
 
         tvReceived.text = "Welcome, ${navArgs.name}"
+
+        btnClose.setOnClickListener {
+            navController.addKeyAndNavigate("data", Bundle().apply {
+                putString("timeMillis", "${System.currentTimeMillis()}")
+            })
+        }
+
+        btnNoArgs.setOnClickListener {
+            navController.removeKeyAndNavigate<Bundle>("data")
+        }
     }
 }
